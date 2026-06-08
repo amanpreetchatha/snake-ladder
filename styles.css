@@ -1,6 +1,6 @@
 :root{
     --bgColor: #FF0052;
-    --shadow: inset 0 -3em 3em rgb(0 200 0 / 30%), 0.3em 0.3em 1em rgb(200 0 0 / 60%);
+    --shadow: inset 0 0 0 1px white, 0em 0em 10px rgb(200 0 0);
 }
 
 
@@ -58,7 +58,10 @@ main{
 }
 .player-sel {
     width: 20rem;
-
+    margin-left: 2rem;
+    border: 0;
+    background: 0;
+    border-radius: 10rem;
     /* border: 3px solid black; */
 }
 .player-sel:hover{
@@ -84,14 +87,14 @@ main{
     height: 100%;
     object-fit: contain;
 }
-button{   
+.btn{   
     background-color: var(--bgColor);
     border-radius: 1em;
     padding: 1rem 2em;
     font-size: 2rem;
     border: 0;
 }
-button:hover{
+.btn:hover{
     box-shadow: var(--shadow);
 }
 .button-div{
@@ -101,7 +104,96 @@ button:hover{
 }
 .exit{
     background-color: #8A5F41;
+    margin-top: 2rem;
 }
 .play{
     background-color: #008000;
+    margin-top: 2rem;
+}
+.form {
+    background-color: #00800090;
+    border-radius: 20px;
+    box-sizing: border-box;
+    /* height: 500px; */
+    padding: 20px;
+    width: 320px;
+    text-align: center;
+}
+
+.title {
+    font-size: 2rem;
+    margin-top: 30px;
+}
+.input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+
+.ic1 {
+    margin-top: 40px;
+}
+
+.ic2 {
+    margin-top: 30px;
+}
+
+.input {
+    /* background-color: #303245; */
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+
+.cut {
+    /* background-color: #15172b; */
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+}
+
+.cut-short {
+    width: 50px;
+}
+
+.input:focus~.cut,
+.input:not(:placeholder-shown)~.cut {
+    transform: translateY(8px);
+}
+
+.placeholder {
+    color: #555;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+}
+
+.input:focus~.placeholder,
+.input:not(:placeholder-shown)~.placeholder {
+    transform: translateY(-40px) translateX(-10px) scale(1);
+}
+
+
+.input:focus~.placeholder {
+    color: white;
+}
+fieldset{
+    text-align: left;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    border: none;
 }
