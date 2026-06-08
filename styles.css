@@ -1,0 +1,105 @@
+:root{
+    --bgColor: #FF0052;
+    --shadow: inset 0 -3em 3em rgb(0 200 0 / 30%), 0.3em 0.3em 1em rgb(200 0 0 / 60%);
+}
+
+
+* {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: bold;
+    color: white;
+    box-sizing: border-box;
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-image: url("img/background1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header{
+    height: 15%;
+    width: 100%;
+    text-align: center;
+    
+}
+ul{
+    display: flex;
+    padding: 0;
+    justify-content: space-evenly;
+    font-size: 2rem;
+}
+li{
+    list-style: none;
+    background-color: var(--bgColor);
+    border-radius: 2rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+}
+li:hover{
+    background-color: var(--bgColor);
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 80%;
+    flex-wrap: wrap;
+    /* border: 3px solid black; */
+}
+.player-sel {
+    width: 20rem;
+
+    /* border: 3px solid black; */
+}
+.player-sel:hover{
+    box-shadow: var(--shadow);
+}
+@media (max-width: 300){
+    .player-sel{
+        width: 100%;
+    }
+    ul{
+        flex-direction: column;
+    }
+}
+.player-img{
+    width: 100%;
+    height: 110%;
+    position: relative;
+    top: 3px;
+    object-fit: contain;
+}
+.comp-img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+button{   
+    background-color: var(--bgColor);
+    border-radius: 1em;
+    padding: 1rem 2em;
+    font-size: 2rem;
+    border: 0;
+}
+button:hover{
+    box-shadow: var(--shadow);
+}
+.buttons{
+    /* border: 3px solid black; */
+    width: 100%;
+    text-align: center;
+}
+.exit{
+    background-color: #8A5F41;
+}
+.play{
+    background-color: #008000;
+}
