@@ -23,6 +23,7 @@ body{
     background-image: url("img/background1.png");
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 header{
     height: 15%;
@@ -46,6 +47,7 @@ li:hover{
     background-color: var(--bgColor);
 }
 main{
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,7 +94,7 @@ button{
 button:hover{
     box-shadow: var(--shadow);
 }
-.buttons{
+.button-div{
     /* border: 3px solid black; */
     width: 100%;
     text-align: center;
