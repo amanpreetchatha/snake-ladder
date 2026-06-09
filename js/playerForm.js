@@ -9,7 +9,7 @@ let formDiv = `
         
     </div>
     <div class="input-container ic2">
-        <input id="player2" class="input" type="text" placeholder=" " /><img class="player-icon" src="./img/icon-red.webp"/>
+        <input id="player2" class="input" type="text" placeholder=" " /><img class="player-icon" src="./img/icon-blue.webp"/>
         <div class="cut"></div>
         <label for="player2" class="placeholder">Player 2</label>
     </div>
@@ -32,7 +32,7 @@ let formDiv = `
 
 let thirdPlayer = `
     <div class="input-container">
-        <input id="player3" class="input" type="text" placeholder=" " />
+        <input id="player3" class="input" type="text" placeholder=" " /><img class="player-icon" src="./img/icon-yellow.webp"/>
         <div class="cut"></div>
         <label for="player3" class="placeholder">Player 3</label>
     </div>
@@ -40,7 +40,7 @@ let thirdPlayer = `
 
 let fourthPlayer = `
     <div class="input-container">
-        <input id="player4" class="input" type="text" placeholder=" " />
+        <input id="player4" class="input" type="text" placeholder=" " /><img class="player-icon" src="./img/icon-green.webp"/>
         <div class="cut"></div>
         <label for="player4" class="placeholder">Player 4</label>
     </div>

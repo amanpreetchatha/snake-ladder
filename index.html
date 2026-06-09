@@ -9,17 +9,14 @@
     
 </head>
 <body>
-    <!-- <header>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>Setting</li>
-            </ul>
-        </nav>
-    </header> -->
     <main>
-        <button class="player-sel" id="with-player"><img class="player-img" src="img/player.png" /></button>
-        <button class="player-sel" id="with-comp"><img class="comp-img" src="img/computer.png"/></button>
+        <fieldset class="radio">
+            <input class="player-sel" type="radio" id="with-player" name="opponent" value="with-player" checked/>
+            <input class="comp-sel" type="radio" id="with-comp" name="opponent" value="with-comp"/>
+            
+            <!-- <button class="player-sel" id="with-player"><img class="player-img" src="img/player.png" /></button> -->
+            <!-- <button class="player-sel" id="with-comp"><img class="comp-img" src="img/computer.png"/></button> -->
+        </fieldset>
         <div class="button-div">
             <button class="play btn" id="play-button">Play</button>
         </div>
