@@ -111,7 +111,7 @@ main{
     margin-top: 2rem;
 }
 .form {
-    background-color: #00800090;
+    background-color: #00800080;
     border-radius: 20px;
     box-sizing: border-box;
     /* height: 500px; */
@@ -134,20 +134,26 @@ main{
     margin-top: 40px;
 }
 
-.ic2 {
+.ic2, .ic3, .ic4{
     margin-top: 30px;
 }
 
 .input {
     /* background-color: #303245; */
+    color: #555;
     border-radius: 12px;
     border: 0;
     box-sizing: border-box;
-    font-size: 18px;
+    font-size: 2rem;
     height: 100%;
     outline: 0;
     padding: 4px 20px 0;
     width: 100%;
+}
+.player-icon{
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
 }
 
 .cut {
@@ -196,4 +202,6 @@ fieldset{
     font-size: 1.5rem;
     margin-top: 0.5rem;
     border: none;
+    display: flex;
+    justify-content: space-between;
 }
