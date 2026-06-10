@@ -10,16 +10,15 @@
 </head>
 <body>
     <main>
-        <fieldset class="radio">
-            <input class="player-sel" type="radio" id="with-player" name="opponent" value="with-player" checked/>
-            <input class="comp-sel" type="radio" id="with-comp" name="opponent" value="with-comp"/>
-            
-            <!-- <button class="player-sel" id="with-player"><img class="player-img" src="img/player.png" /></button> -->
-            <!-- <button class="player-sel" id="with-comp"><img class="comp-img" src="img/computer.png"/></button> -->
-        </fieldset>
-        <div class="button-div">
-            <button class="play btn" id="play-button">Play</button>
-        </div>
+        <form id="opponent-sel" method="get" action="playGame">
+            <fieldset class="opponent-radio">
+                <input class="player-sel" type="radio" id="with-player" name="opponent" value="with-player" checked/>
+                <input class="comp-sel" type="radio" id="with-comp" name="opponent" value="with-comp"/>
+            </fieldset>
+            <div class="button-div">
+                <button class="play btn" id="play-button" type="submit">Play</button>
+            </div>
+        </form>
     </main>
     <script src="js/index.js" type="module"></script>
 </body>

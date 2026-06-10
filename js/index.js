@@ -3,22 +3,30 @@ import {formDiv, thirdPlayer, fourthPlayer} from "./playerForm.js";
 
 
 let mainElement = document.querySelector("main");
-let playerSelection = mainElement.firstElementChild;
-let playButtonDiv = document.querySelector(".button-div");
-let form = formDiv;
+let opponentSelForm = document.querySelector("#opponent-sel");
 
 
-document.querySelector("#play-button").addEventListener("click",(e)=>{
-    mainElement.removeChild(playerSelection);
-    mainElement.removeChild(playButtonDiv);
-    mainElement.innerHTML=form;    //adds no. of players form
 
+
+document.querySelector("#opponent-sel").addEventListener("submit",(e)=>{
+    e.preventDefault();
+    let opponentObj = Object.fromEntries(new FormData(e.target).entries());
+    //console.log(opponentObj.opponent)
+
+
+    //removes the previous screen and injects new form in the main element.
+    //try to seprate this from this eventlistner body.
+    mainElement.removeChild(opponentSelForm);
+    mainElement.innerHTML=formDiv;
+
+    //goes back to previous screen when exit button is pressed
     document.querySelector("#exit-game").addEventListener("click", (e) => {
-        
-        mainElement.replaceChildren(playerSelection,playButtonDiv);
+        mainElement.replaceChildren(opponentSelForm);
     });
-    let fieldset = document.querySelector(".radio");
-    fieldset.addEventListener("change",(event)=>{
+
+    let playerCountFieldset = document.querySelector(".radio");
+    //adds more input fields for required number of players
+    playerCountFieldset.addEventListener("change",(event)=>{                        
         if(event.target && event.target.name === "player-count"){
             if(event.target.value ==="two"){
                 document.querySelector(".ic3").innerHTML = "";
@@ -33,5 +41,7 @@ document.querySelector("#play-button").addEventListener("click",(e)=>{
                 document.querySelector(".ic4").innerHTML = fourthPlayer;
             }
         }
-    })
+    });
+
+
 });

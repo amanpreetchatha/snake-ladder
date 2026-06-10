@@ -25,27 +25,6 @@ body{
     background-size: cover;
     overflow: hidden;
 }
-header{
-    height: 15%;
-    width: 100%;
-    text-align: center;
-    
-}
-ul{
-    display: flex;
-    padding: 0;
-    justify-content: space-evenly;
-    font-size: 2rem;
-}
-li{
-    list-style: none;
-    background-color: var(--bgColor);
-    border-radius: 2rem;
-    padding: 0.5rem 2rem 0.5rem 2rem;
-}
-li:hover{
-    background-color: var(--bgColor);
-}
 main{
     margin-top: 5rem;
     display: flex;
@@ -76,26 +55,6 @@ main{
 }
 .player-sel:checked, .comp-sel:checked{
     box-shadow: var(--shadow);
-}
-@media (max-width: 300){
-    .player-sel{
-        width: 100%;
-    }
-    ul{
-        flex-direction: column;
-    }
-}
-.player-img{
-    width: 10em;
-    height: 10em;
-    position: relative;
-    top: 3px;
-    object-fit: contain;
-}
-.comp-img{
-    width: 10em;
-    height: 10em;
-    object-fit: contain;
 }
 .btn{   
     background-color: var(--bgColor);
@@ -218,4 +177,35 @@ fieldset{
     border: none;
     display: flex;
     justify-content: space-between;
+}
+@media (width<400px){
+    *{font-size: 16px}
+    .opponent-radio{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (width < 800px) {
+    *{
+        font-size: 20px;
+    }
+    body{
+        background: none;
+        overflow: scroll;
+    }
+    main{
+        margin: 0;
+    }
+    .player-sel,
+    .comp-sel {
+        width: 8rem;
+        height: 8rem;
+    }
+    .comp-sel{
+        background-position: 0 15px;
+    }
+    .btn {
+        padding: 0.5rem 1.5em;
+        font-size: 1.5rem;
+    }
 }
