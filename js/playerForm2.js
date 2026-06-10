@@ -1,24 +1,28 @@
 import { mainElement } from "./index.js";
 import { thirdPlayer, fourthPlayer } from "./playerForm.js";
+import { boardLayout } from "./gameBoard.js";
+
+let playerCountFieldset = document.querySelector(".radio");
+
+if (localStorage.getItem("opponent") === "with-comp") {
+    document.querySelector(".ic2").remove();
+    playerCountFieldset.remove();
+    
+}
 
 
-// let mainElement = document.querySelector("main");
 // goes back to previous screen when exit button is pressed
 document.querySelector("#exit-game").addEventListener("click", (e) => {
     e.preventDefault();
-    // let bodyElement = document.querySelector("body");
+    
     // bodyElement.innerHTML = mainElement;
     window.location.replace("/")
 });
-document.querySelector("#player-data").addEventListener("submit",(event)=>{
-    event.preventDefault();
-    console.log("user data submitted")
-});
 
-let playerCountFieldset = document.querySelector(".radio");
 //adds more input fields for required number of players
 playerCountFieldset.addEventListener("change", (event) => {
-    if (event.target && event.target.name === "player-count") {
+    
+    if ((event.target && event.target.name === "player-count") && (localStorage.getItem("opponent")==="with-player")) {
         if (event.target.value === "two") {
             document.querySelector(".ic3").innerHTML = "";
             document.querySelector(".ic4").innerHTML = "";
@@ -35,4 +39,12 @@ playerCountFieldset.addEventListener("change", (event) => {
 });
 
 
-;
+document.querySelector("#player-data").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    //start game here
+    let playerDetail = Object.fromEntries(new FormData(event.target).entries());
+    console.log(playerDetail);
+    document.querySelector("body").innerHTML = boardLayout;
+});
+

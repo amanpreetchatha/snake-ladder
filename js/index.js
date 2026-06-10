@@ -25,14 +25,13 @@ function playGame(e){
         e.preventDefault();
         
         let opponentObj = Object.fromEntries(new FormData(e.target).entries());
+        localStorage.setItem("opponent",opponentObj.opponent);
         
-        //removes the previous screen and injects new form in the main element.
-        //try to seprate this from this eventlistner body.
-        // bodyElement.removeChild(mainElement);
         bodyElement.innerHTML = formDiv;
         let scriptTag = document.createElement("script");
         scriptTag.src = "js/playerForm2.js";
         scriptTag.type = "module";
         bodyElement.appendChild(scriptTag);
+        
 }
 export {mainElement};
