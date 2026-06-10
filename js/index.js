@@ -1,47 +1,38 @@
 
-import {formDiv, thirdPlayer, fourthPlayer} from "./playerForm.js";
+import {formDiv} from "./playerForm.js";
 
 
-let mainElement = document.querySelector("main");
-let opponentSelForm = document.querySelector("#opponent-sel");
+let bodyElement = document.querySelector("body");
+let mainElement = `
+    <main>
+    <form id="opponent-sel" method="post">
+        <fieldset class="opponent-radio">
+            <input class="player-sel" type="radio" id="with-player" name="opponent" value="with-player" checked/>
+            <input class="comp-sel" type="radio" id="with-comp" name="opponent" value="with-comp"/>
+        </fieldset>
+        <div class="button-div">
+            <button class="play btn" id="play-button" type="submit">Play</button>
+        </div>
+    </form>
+    </main>
+    <script src="js/index.js" type="module"></script>
+`;
 
 
 
-
-document.querySelector("#opponent-sel").addEventListener("submit",(e)=>{
-    e.preventDefault();
-    let opponentObj = Object.fromEntries(new FormData(e.target).entries());
-    //console.log(opponentObj.opponent)
-
-
-    //removes the previous screen and injects new form in the main element.
-    //try to seprate this from this eventlistner body.
-    mainElement.removeChild(opponentSelForm);
-    mainElement.innerHTML=formDiv;
-
-    //goes back to previous screen when exit button is pressed
-    document.querySelector("#exit-game").addEventListener("click", (e) => {
-        mainElement.replaceChildren(opponentSelForm);
-    });
-
-    let playerCountFieldset = document.querySelector(".radio");
-    //adds more input fields for required number of players
-    playerCountFieldset.addEventListener("change",(event)=>{                        
-        if(event.target && event.target.name === "player-count"){
-            if(event.target.value ==="two"){
-                document.querySelector(".ic3").innerHTML = "";
-                document.querySelector(".ic4").innerHTML = "";
-            }
-            if (event.target.value === "three") {
-                document.querySelector(".ic4").innerHTML = "";
-                document.querySelector(".ic3").innerHTML = thirdPlayer;
-            }
-            if (event.target.value === "four") {
-                document.querySelector(".ic3").innerHTML = thirdPlayer;
-                document.querySelector(".ic4").innerHTML = fourthPlayer;
-            }
-        }
-    });
-
-
-});
+document.querySelector("#opponent-sel").addEventListener("submit",playGame);
+function playGame(e){
+        e.preventDefault();
+        
+        let opponentObj = Object.fromEntries(new FormData(e.target).entries());
+        
+        //removes the previous screen and injects new form in the main element.
+        //try to seprate this from this eventlistner body.
+        // bodyElement.removeChild(mainElement);
+        bodyElement.innerHTML = formDiv;
+        let scriptTag = document.createElement("script");
+        scriptTag.src = "js/playerForm2.js";
+        scriptTag.type = "module";
+        bodyElement.appendChild(scriptTag);
+}
+export {mainElement};

@@ -1,6 +1,7 @@
 
 let formDiv = `
-<div class="form">
+<main>
+<form class="form" id="player-data" method="post">
     <div class="title">Choose Color and Name</div>
     <div class="input-container ic1">
         <input id="player1" class="input" type="text" placeholder=" " /><img class="player-icon" src="./img/icon-red.webp"/>
@@ -25,9 +26,9 @@ let formDiv = `
             <label for="four">Four</label>
     </fieldset>
 
-    <button type="text" class="btn play" id="start-game">Start</button>
-    <button type="text" class="btn exit" id="exit-game">Exit</button>
-</div>
+    <button type="submit" class="btn play" id="start-game">Start</button>
+    <button type="cancel" class="btn exit" id="exit-game">Exit</button>
+</form>
 `;
 
 let thirdPlayer = `
@@ -36,6 +37,7 @@ let thirdPlayer = `
         <div class="cut"></div>
         <label for="player3" class="placeholder">Player 3</label>
     </div>
+</main>
 `;
 
 let fourthPlayer = `
@@ -45,4 +47,7 @@ let fourthPlayer = `
         <label for="player4" class="placeholder">Player 4</label>
     </div>
 `;
+console.log("hellow")
+
+
 export {formDiv, thirdPlayer, fourthPlayer};
