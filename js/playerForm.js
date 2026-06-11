@@ -7,7 +7,6 @@ let formDiv = `
         <input id="player1" name="player1" class="input" type="text" placeholder=" " required /><img class="player-icon" src="./img/icon-red.webp"/>
         <div class="cut"></div>
         <label for="player1" class="placeholder">Player 1</label>
-        
     </div>
     <div class="input-container ic2">
         <input id="player2" name="player2" class="input" type="text" placeholder=" " required/><img class="player-icon" src="./img/icon-blue.webp"/>
@@ -18,11 +17,11 @@ let formDiv = `
     <div class="ic4"></div>
     <fieldset class="radio">
         <legend>Number of Players:</legend>
-            <input type="radio" id="two" name="player-count" value="two" checked />
+            <input type="radio" id="two" name="player-count" value="2" checked />
             <label for="two">Two</label>
-            <input type="radio" id="three" name="player-count" value="three" />
+            <input type="radio" id="three" name="player-count" value="3" />
             <label for="three">Three</label>
-            <input type="radio" id="four" name="player-count" value="four" />
+            <input type="radio" id="four" name="player-count" value="4" />
             <label for="four">Four</label>
     </fieldset>
 
@@ -47,7 +46,7 @@ let fourthPlayer = `
         <label for="player4" class="placeholder">Player 4</label>
     </div>
 `;
-console.log("hellow")
+
 
 
 export {formDiv, thirdPlayer, fourthPlayer};

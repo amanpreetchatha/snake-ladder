@@ -23,17 +23,20 @@ document.querySelector("#exit-game").addEventListener("click", (e) => {
 playerCountFieldset.addEventListener("change", (event) => {
     
     if ((event.target && event.target.name === "player-count") && (localStorage.getItem("opponent")==="with-player")) {
-        if (event.target.value === "two") {
-            document.querySelector(".ic3").innerHTML = "";
-            document.querySelector(".ic4").innerHTML = "";
-        }
-        if (event.target.value === "three") {
-            document.querySelector(".ic4").innerHTML = "";
-            document.querySelector(".ic3").innerHTML = thirdPlayer;
-        }
-        if (event.target.value === "four") {
-            document.querySelector(".ic3").innerHTML = thirdPlayer;
-            document.querySelector(".ic4").innerHTML = fourthPlayer;
+        
+        switch(Number(event.target.value)) {
+            case 2:
+                document.querySelector(".ic3").innerHTML = "";
+                document.querySelector(".ic4").innerHTML = "";
+            break;
+            case 3:
+                document.querySelector(".ic4").innerHTML = "";
+                document.querySelector(".ic3").innerHTML = thirdPlayer;
+            break;
+            case 4:
+                document.querySelector(".ic3").innerHTML = thirdPlayer;
+                document.querySelector(".ic4").innerHTML = fourthPlayer;
+            break;
         }
     }
 });
@@ -44,7 +47,14 @@ document.querySelector("#player-data").addEventListener("submit", (event) => {
 
     //start game here
     let playerDetail = Object.fromEntries(new FormData(event.target).entries());
-    console.log(playerDetail);
-    document.querySelector("body").innerHTML = boardLayout;
+    localStorage.setItem("playersObj",JSON.stringify(playerDetail));
+    //injects the game board layout to body element
+    let docBody = document.querySelector("body");
+    docBody.innerHTML = boardLayout;
+    let scriptTag = document.createElement("script");
+    scriptTag.src = "js/gameBoard2.js";
+    scriptTag.type = "module";
+    docBody.appendChild(scriptTag);
+
 });
 
