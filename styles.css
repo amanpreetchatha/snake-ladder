@@ -233,6 +233,12 @@ fieldset{
     grid-template-columns: repeat(10,1fr);
     grid-template-rows: repeat(10,1fr);
 }
+.grid-item{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
 .pl-col{
     height: 50rem;
     width: 15rem;
@@ -271,9 +277,31 @@ fieldset{
     border-radius: 0.5rem;
     background: none;
 }
+.bounce{
+    animation: bounceContinuous 0.8s ease-in-out infinite;
+}
 .turn{
     background-image: url("img/dice1.png");
     background-size: contain;
+    transition: transform 1s ease-in-out;
+    perspective: 800px;
+}
+
+@keyframes bounceContinuous {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        /* On the ground */
+    }
+
+    50% {
+        transform: translateY(-10px);
+        /* Peak of the jump (up by 30 pixels) */
+    }
+}
+.animate-dice{
+    transform: rotate3d(1,1,1,360deg);
 }
 .game-nav {
     width: 100%;
@@ -304,4 +332,9 @@ fieldset{
 
 .game-nav ul li:hover {
     background-color: #00000099;
+}
+
+.marker{
+    height: 2rem;
+    width: 2rem;
 }

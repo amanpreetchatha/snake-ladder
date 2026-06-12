@@ -13,6 +13,7 @@ let boardLayout = `
     </div>
     <main class="game-board">
         <div class="grid-container">
+                       
         </div>
     </main>
     <div class="players-column2 pl-col">
@@ -24,7 +25,7 @@ let playerRow1 = `
 <div class="player-row1 pl-row">
     <h2 class="player1 name"></h2>
     <img class="pl" src="./img/icon-red.webp"/>
-    <button class="dice turn"></button>
+    <button class="dice bounce turn"></button>
 </div>
 `;
 let playerRow2 = `
@@ -49,4 +50,9 @@ let playerRow4 = `
     <button class="dice"></button>
 </div>
 `;
-export {boardLayout, playerRow1, playerRow2, playerRow3, playerRow4};
+let markerPlayer1 = `<img class="marker marker-1" src="img/icon-red.webp"/>`;
+let markerPlayer2 = `<img class="marker marker-2" src="img/icon-blue.webp"/>`;
+let markerPlayer3 = `<img class="marker marker-3" src="img/icon-yellow.webp"/>`;
+let markerPlayer4 = `<img class="marker marker-4" src="img/icon-green.webp"/>`;
+let markerComputer = `<img class="marker comp-marker" src="img/icon-blue.webp"/>`;
+export {boardLayout, playerRow1, playerRow2, playerRow3, playerRow4, markerPlayer1, markerPlayer2, markerPlayer3, markerPlayer4, markerComputer};
