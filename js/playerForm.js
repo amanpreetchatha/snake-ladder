@@ -4,12 +4,12 @@ let formDiv = `
 <form class="form" id="player-data" method="post">
     <div class="title">Choose Color and Name</div>
     <div class="input-container ic1">
-        <input id="player1" name="player1" class="input" type="text" placeholder=" " required /><img class="player-icon" src="./img/icon-red.webp"/>
+        <input id="player1" name="player1" class="input" type="text" placeholder=" " required maxlength="20" /><img class="player-icon" src="./img/icon-red.webp"/>
         <div class="cut"></div>
         <label for="player1" class="placeholder">Player 1</label>
     </div>
     <div class="input-container ic2">
-        <input id="player2" name="player2" class="input" type="text" placeholder=" " required/><img class="player-icon" src="./img/icon-blue.webp"/>
+        <input id="player2" name="player2" class="input" type="text" placeholder=" " required maxlength="20"/><img class="player-icon" src="./img/icon-blue.webp"/>
         <div class="cut"></div>
         <label for="player2" class="placeholder">Player 2</label>
     </div>
@@ -17,11 +17,11 @@ let formDiv = `
     <div class="ic4"></div>
     <fieldset class="radio">
         <legend>Number of Players:</legend>
-            <input type="radio" id="two" name="player-count" value="2" checked />
+            <input type="radio" id="two" name="noOfPlayers" value="2" checked />
             <label for="two">Two</label>
-            <input type="radio" id="three" name="player-count" value="3" />
+            <input type="radio" id="three" name="noOfPlayers" value="3" />
             <label for="three">Three</label>
-            <input type="radio" id="four" name="player-count" value="4" />
+            <input type="radio" id="four" name="noOfPlayers" value="4" />
             <label for="four">Four</label>
     </fieldset>
 
@@ -32,7 +32,7 @@ let formDiv = `
 
 let thirdPlayer = `
     <div class="input-container">
-        <input id="player3" name="player3" class="input" type="text" placeholder=" " required/><img class="player-icon" src="./img/icon-yellow.webp"/>
+        <input id="player3" name="player3" class="input" type="text" placeholder=" " required maxlength="20"/><img class="player-icon" src="./img/icon-yellow.webp"/>
         <div class="cut"></div>
         <label for="player3" class="placeholder">Player 3</label>
     </div>
@@ -41,7 +41,7 @@ let thirdPlayer = `
 
 let fourthPlayer = `
     <div class="input-container">
-        <input id="player4" name="player4" class="input" type="text" placeholder=" " required /><img class="player-icon" src="./img/icon-green.webp"/>
+        <input id="player4" name="player4" class="input" type="text" placeholder=" " required maxlength="20" /><img class="player-icon" src="./img/icon-green.webp"/>
         <div class="cut"></div>
         <label for="player4" class="placeholder">Player 4</label>
     </div>

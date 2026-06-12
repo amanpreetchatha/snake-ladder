@@ -22,7 +22,7 @@ document.querySelector("#exit-game").addEventListener("click", (e) => {
 //adds more input fields for required number of players
 playerCountFieldset.addEventListener("change", (event) => {
     
-    if ((event.target && event.target.name === "player-count") && (localStorage.getItem("opponent")==="with-player")) {
+    if ((event.target && event.target.name === "noOfPlayers") && (localStorage.getItem("opponent")==="with-player")) {
         
         switch(Number(event.target.value)) {
             case 2:

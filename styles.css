@@ -211,7 +211,6 @@ fieldset{
 }
 .game-div{
     display: grid;
-    border: 2px solid blue;
     /* align-items: flex-end; */
     grid-template-rows: 5rem 1fr;
     grid-template-columns: 15rem 1fr 15rem;
@@ -234,24 +233,75 @@ fieldset{
     grid-template-columns: repeat(10,1fr);
     grid-template-rows: repeat(10,1fr);
 }
-.players-column{
+.pl-col{
     height: 50rem;
     width: 15rem;
-    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
 }
-.player-row{
-    height: 15rem;
+.pl-row{
     width: 100%;
-    background-color: #888;
+    background-color: #00000099;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
 
 }
-.game-nav{
+.name{
+    text-wrap: wrap;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+.pl{
+    height: 4rem;
+    width: 4rem;
+    
+}
+.dice{
+    margin-top: 0.5rem;
+    border: 2px solid white;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 0.5rem;
+    background: none;
+}
+.turn{
+    background-image: url("img/dice1.png");
+    background-size: contain;
+}
+.game-nav {
     width: 100%;
+    text-align: center;
     /* align-self: flex-start; */
-    background-color: #8A5F41;
+    background-color: #8A5F4190;
     grid-area: 1/1/2/4;
+}
+
+.game-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%
+}
+
+.game-nav ul li {
+    list-style: none;
+    font-size: 2rem;
+    height: 100%;
+    width: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-nav ul li:hover {
+    background-color: #00000099;
 }
