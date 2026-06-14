@@ -1,21 +1,19 @@
-import { mainElement } from "./index.js";
-import { thirdPlayer, fourthPlayer } from "./playerForm.js";
-import { boardLayout } from "./gameBoard.js";
+
+import { initGame } from "./controller.js";
+import { thirdPlayer, fourthPlayer } from "./allElements.js";
+
+
+function runScript(){
 
 let playerCountFieldset = document.querySelector(".radio");
-
 if (localStorage.getItem("opponent") === "with-comp") {
     document.querySelector(".ic2").remove();
-    playerCountFieldset.remove();
-    
+    playerCountFieldset.remove();   
 }
-
-
 // goes back to previous screen when exit button is pressed
 document.querySelector("#exit-game").addEventListener("click", (e) => {
     e.preventDefault();
-    
-    // bodyElement.innerHTML = mainElement;
+
     window.location.replace("/")
 });
 
@@ -49,12 +47,9 @@ document.querySelector("#player-data").addEventListener("submit", (event) => {
     let playerDetail = Object.fromEntries(new FormData(event.target).entries());
     localStorage.setItem("playersObj",JSON.stringify(playerDetail));
     //injects the game board layout to body element
-    let docBody = document.querySelector("body");
-    docBody.innerHTML = boardLayout;
-    let scriptTag = document.createElement("script");
-    scriptTag.src = "js/gameBoard2.js";
-    scriptTag.type = "module";
-    docBody.appendChild(scriptTag);
+    initGame();
 
 });
 
+}
+export default runScript;
