@@ -275,16 +275,11 @@ fieldset{
     width: 5rem;
     height: 5rem;
     border-radius: 0.5rem;
-    background: none;
-}
-.bounce{
-    animation: bounceContinuous 0.8s ease-in-out infinite;
-}
-.turn{
     background-image: url("img/dice1.png");
     background-size: contain;
-    transition: transform 1s ease-in-out;
-    perspective: 800px;
+}
+.turn{
+    animation: bounceContinuous 0.8s ease-in-out infinite;
 }
 
 @keyframes bounceContinuous {
@@ -302,6 +297,8 @@ fieldset{
 }
 .animate-dice{
     transform: rotate3d(1,1,1,360deg);
+    transition: transform 2s ease-in-out;
+    perspective: 800px;
 }
 .game-nav {
     width: 100%;
@@ -337,4 +334,5 @@ fieldset{
 .marker{
     height: 2rem;
     width: 2rem;
+    will-change: transform;
 }

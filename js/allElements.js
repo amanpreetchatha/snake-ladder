@@ -38,6 +38,7 @@ let formDiv = `
     <button type="submit" class="btn play" id="start-game">Start</button>
     <button type="cancel" class="btn exit" id="exit-game">Exit</button>
 </form>
+</main>
 `;
 
 let thirdPlayer = `
@@ -46,7 +47,6 @@ let thirdPlayer = `
         <div class="cut"></div>
         <label for="player3" class="placeholder">Player 3</label>
     </div>
-</main>
 `;
 
 let fourthPlayer = `
@@ -81,41 +81,49 @@ let boardLayout = `
     </div>
 `;
 let playerRow1 = `
-<div class="player-row1 pl-row">
+<div class="pl-row" id="pl1">
     <h2 class="player1 name"></h2>
     <img class="pl" src="./img/icon-red.webp"/>
-    <button class="dice bounce turn" id="pl1"></button>
 </div>
 `;
 let playerRow2 = `
-<div class="player-row2 pl-row">
+<div class="pl-row" id="pl2">
     <h2 class="player2 name"></h2>
     <img class="pl" src="./img/icon-blue.webp"/>
-    <button class="dice" id="pl2"></button>
+    
 </div>
 `;
 let playerRow3 = `
-<div class="player-row3 pl-row">
+<div class="pl-row" id="pl3">
     <h2 class="player3 name"></h2>
     <img class="pl" src="./img/icon-yellow.webp"/>
-    <button class="dice" id="pl3"></button>
+    
 </div>
 
 `;
 let playerRow4 = `
-<div class="player-row4 pl-row">
+<div class="pl-row" id="pl4">
     <h2 class="player4 name"></h2>
     <img class="pl" src="./img/icon-green.webp"/>
-    <button class="dice" id="pl4"></button>
+    
 </div>
 `;
-let markerPlayer1 = `<img class="marker marker-1" src="img/icon-red.webp"/>`;
-let markerPlayer2 = `<img class="marker marker-2" src="img/icon-blue.webp"/>`;
-let markerPlayer3 = `<img class="marker marker-3" src="img/icon-yellow.webp"/>`;
-let markerPlayer4 = `<img class="marker marker-4" src="img/icon-green.webp"/>`;
+let markerPlayer1 = `<img class="marker pl1" src="img/icon-red.webp"/>`;
+let markerPlayer2 = `<img class="marker pl2" src="img/icon-blue.webp"/>`;
+let markerPlayer3 = `<img class="marker pl3" src="img/icon-yellow.webp"/>`;
+let markerPlayer4 = `<img class="marker pl4" src="img/icon-green.webp"/>`;
 let markerComputer = `<img class="marker comp-marker" src="img/icon-blue.webp"/>`;
 
-export { boardLayout, playerRow1, playerRow2, playerRow3, playerRow4, markerPlayer1, markerPlayer2, markerPlayer3, markerPlayer4, markerComputer };
+let dice = `<button class="dice turn"></button>`;
+
+
+export function createElementFromString(htmlString) {
+    const template = document.createElement('template');
+    template.innerHTML = htmlString.trim(); // .trim() removes unnecessary whitespace
+    return template.content.firstElementChild; // Returns the single HTML element
+}
+
+export {dice, boardLayout, playerRow1, playerRow2, playerRow3, playerRow4, markerPlayer1, markerPlayer2, markerPlayer3, markerPlayer4, markerComputer };
 
 
 export {opponentForm, formDiv, thirdPlayer, fourthPlayer};

@@ -1,38 +1,82 @@
-<!DOCTYPE html>
+<html>
 <head>
     <style>
-        #movingImage {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 50px;
-            height: 50px;
-            
-            /* 1. Tell the browser WHAT to animate and HOW LONG (3 seconds) */
-            transition: transform 3s ease-in-out;
-            
-            /* 2. Starting position (X: 0px, Y: 0px) */
-            transform: translate(220px, 220px); 
-        }
-    </style>
+        .container {
+            width: 300px;
+            height: 150px;
+            border: 2px dashed #ccc;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            }
 
+            .jump-box {
+            width: 80px;
+            height: 80px;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            will-change: transform; /* Optimizes browser rendering performance */
+            }
+
+    </style>
 </head>
 <body>
-    <img id="movingImage" src="./img/icon-blue.webp" alt="Smooth Player Icon">
-    <button id="moveBtn">Move Image</button>
-    
-    <script>
-        const image = document.querySelector('#movingImage');
-            const button = document.querySelector('#moveBtn');
+    <div class="container" id="source-div">
+        <div class="jump-box" id="animated-element">Jump Me!</div>
+    </div>
 
-            button.addEventListener('click', () => {
-                // Move the image 400 pixels right and 200 pixels down
-                image.style.transform = 'translate(1400px, 400px)';
-            });
-                
-                
+    <div class="container" id="destination-div"></div>
+
+    <button onclick="moveWithJump('animated-element', 'destination-div')">
+        Trigger Jump Move
+    </button>
+    <script>
+        function moveWithJump(elementId, targetContainerId) {
+                const element = document.getElementById(elementId);
+                const targetContainer = document.getElementById(targetContainerId);
+
+                // 1. FIRST: Record the starting screen coordinates
+                const firstRect = element.getBoundingClientRect();
+
+                // Move the element in the DOM instantly
+                targetContainer.appendChild(element);
+
+                // 2. LAST: Record the final screen coordinates
+                const lastRect = element.getBoundingClientRect();
+
+                // 3. INVERT: Calculate the distance delta
+                const deltaX = firstRect.left - lastRect.left;
+                const deltaY = firstRect.top - lastRect.top;
+
+                // 4. PLAY: Animate from the inverted position to the natural position (0, 0)
+                // To create a "jump" effect, we split X and Y easing into separate keyframes,
+                // or use a parabolic arch curve using transform offsets.
+                element.animate([
+                    {
+                        transform: `translate(${deltaX}px, ${deltaY}px) scale(1)`,
+                        offset: 0
+                    },
+                    {
+                        transform: `translate(${deltaX / 2}px, ${Math.min(deltaY,50) + 50}px) scale(1.2)`,
+                        offset: 0.5
+                    }, // Peak of the jump
+                    {
+                        transform: `translate(0px, 0px) scale(1)`,
+                        offset: 1
+                    }
+                ], {
+                    duration: 600, // Duration in milliseconds
+                    easing: 'cubic-bezier(0.25, 1, 0.5, 1)', // Smooth landing profile
+                    fill: 'forwards'
+                });
+            }
 
     </script>
-
 </body>
-</html>
+
+</html>  
