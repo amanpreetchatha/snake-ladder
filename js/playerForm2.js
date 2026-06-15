@@ -43,10 +43,14 @@ playerCountFieldset.addEventListener("change", (event) => {
 document.querySelector("#player-data").addEventListener("submit", (event) => {
     event.preventDefault();
 
-    //start game here
+    
     let playerDetail = Object.fromEntries(new FormData(event.target).entries());
+    if(playerDetail.noOfPlayers === undefined && localStorage.getItem("opponent") === "with-comp"){
+        playerDetail.noOfPlayers = 1;
+        playerDetail.pl2 = "Computer";
+    }
     localStorage.setItem("playersObj",JSON.stringify(playerDetail));
-    //injects the game board layout to body element
+    
     initGame();
 
 });

@@ -75,32 +75,32 @@ if (localStorage.getItem("opponent") === "with-player") {
     if (playerCount === 2) {
         col1.innerHTML = playerRow1;
         col2.innerHTML = playerRow2;
-        document.querySelector(".player1").innerHTML = playerDetail?.player1;
-        document.querySelector(".player2").innerHTML = playerDetail?.player2;
+        document.querySelector(".player1").innerHTML = playerDetail?.pl1;
+        document.querySelector(".player2").innerHTML = playerDetail?.pl2;
         document.querySelector("#item1").innerHTML = markerPlayer1 + markerPlayer2;
     }
     if (playerCount === 3) {
         col1.innerHTML = playerRow1 + playerRow3;
         col2.innerHTML = playerRow2;
-        document.querySelector(".player1").innerHTML = playerDetail?.player1;
-        document.querySelector(".player2").innerHTML = playerDetail?.player2;
-        document.querySelector(".player3").innerHTML = playerDetail?.player3;
+        document.querySelector(".player1").innerHTML = playerDetail?.pl1;
+        document.querySelector(".player2").innerHTML = playerDetail?.pl2;
+        document.querySelector(".player3").innerHTML = playerDetail?.pl3;
         document.querySelector("#item1").innerHTML = markerPlayer1 + markerPlayer2 + markerPlayer3;
     }
     if (playerCount === 4) {
         col1.innerHTML = playerRow1 + playerRow3;
         col2.innerHTML = playerRow2 + playerRow4;
-        document.querySelector(".player1").innerHTML = playerDetail?.player1;
-        document.querySelector(".player2").innerHTML = playerDetail?.player2;
-        document.querySelector(".player3").innerHTML = playerDetail?.player3;
-        document.querySelector(".player4").innerHTML = playerDetail?.player4;
+        document.querySelector(".player1").innerHTML = playerDetail?.pl1;
+        document.querySelector(".player2").innerHTML = playerDetail?.pl2;
+        document.querySelector(".player3").innerHTML = playerDetail?.pl3;
+        document.querySelector(".player4").innerHTML = playerDetail?.pl4;
         document.querySelector("#item1").innerHTML = markerPlayer1 + markerPlayer2 + markerPlayer3 + markerPlayer4;
     }
 
 } else {
-    //logic for game against player
+    //logic for game against computer
     col1.innerHTML = playerRow1;
-    document.querySelector(".player1").innerHTML = playerDetail?.player1;
+    document.querySelector(".player1").innerHTML = playerDetail?.pl1;
 
 
     //add computer player row here;

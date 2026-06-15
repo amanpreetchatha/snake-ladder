@@ -14,14 +14,14 @@ let formDiv = `
 <form class="form" id="player-data" method="post">
     <div class="title">Choose Color and Name</div>
     <div class="input-container ic1">
-        <input id="player1" name="player1" class="input" type="text" placeholder=" " required maxlength="20" /><img class="player-icon" src="./img/icon-red.webp"/>
+        <input id="player1" name="pl1" class="input" type="text" placeholder=" " required maxlength="20" /><img class="player-icon" src="./img/icon-red.webp"/>
         <div class="cut"></div>
-        <label for="player1" class="placeholder">Player 1</label>
+        <label for="pl1" class="placeholder">Player 1</label>
     </div>
     <div class="input-container ic2">
-        <input id="player2" name="player2" class="input" type="text" placeholder=" " required maxlength="20"/><img class="player-icon" src="./img/icon-blue.webp"/>
+        <input id="player2" name="pl2" class="input" type="text" placeholder=" " required maxlength="20"/><img class="player-icon" src="./img/icon-blue.webp"/>
         <div class="cut"></div>
-        <label for="player2" class="placeholder">Player 2</label>
+        <label for="pl2" class="placeholder">Player 2</label>
     </div>
     <div class="ic3"></div>
     <div class="ic4"></div>
@@ -43,17 +43,17 @@ let formDiv = `
 
 let thirdPlayer = `
     <div class="input-container">
-        <input id="player3" name="player3" class="input" type="text" placeholder=" " required maxlength="20"/><img class="player-icon" src="./img/icon-yellow.webp"/>
+        <input id="player3" name="pl3" class="input" type="text" placeholder=" " required maxlength="20"/><img class="player-icon" src="./img/icon-yellow.webp"/>
         <div class="cut"></div>
-        <label for="player3" class="placeholder">Player 3</label>
+        <label for="pl3" class="placeholder">Player 3</label>
     </div>
 `;
 
 let fourthPlayer = `
     <div class="input-container">
-        <input id="player4" name="player4" class="input" type="text" placeholder=" " required maxlength="20" /><img class="player-icon" src="./img/icon-green.webp"/>
+        <input id="player4" name="pl4" class="input" type="text" placeholder=" " required maxlength="20" /><img class="player-icon" src="./img/icon-green.webp"/>
         <div class="cut"></div>
-        <label for="player4" class="placeholder">Player 4</label>
+        <label for="pl4" class="placeholder">Player 4</label>
     </div>
 `;
 

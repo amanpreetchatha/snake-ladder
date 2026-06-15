@@ -39,20 +39,14 @@ function firstTurn(){
 }
 function nextTurn(prevPlayer){
     let nextTurn;
-    switch(prevPlayer){
-        case "pl1":
-            nextTurn = "pl2";
-            break;
-        case "pl2":
-            nextTurn = "pl3";
-            break;
-        case "pl3":
-            nextTurn = "pl4";
-            break;
-        case "pl4":
-            nextTurn = "pl1";
-            break;
-    }
+    let opponent = localStorage.getItem("opponent");
+    let playersObj = JSON.parse(localStorage.getItem("playersObj"));
+    let arrayOfPlayers = (Object.keys(playersObj).sort().splice(1,5));
+    let indexOfPrev = arrayOfPlayers.indexOf(prevPlayer);
+    if(indexOfPrev === arrayOfPlayers.length - 1)
+        nextTurn = arrayOfPlayers[0];
+    else
+        nextTurn = arrayOfPlayers[indexOfPrev+1];
     let diceBtn = document.querySelector(".dice");
     diceBtn.remove();
     let nowTurn = document.querySelector("#"+nextTurn);
@@ -74,13 +68,18 @@ async function rollDice(){
                //calculate next position
         let presentDivId = document.getElementsByClassName(whoRolledDice)[0].parentElement.id;
         let moveTo = Number(presentDivId.substr(4)) + diceNumber;   
-        let nextDivId = "item"+moveTo;
+        if(moveTo < 100){
+            let nextDivId = "item" + moveTo;
+           //write a loop here which moves the marker one positon at a time until the final positon is reached 
+            movePlayer(whoRolledDice, nextDivId);
+        }else if(moveTo === 100){
+            alert(whoRolledDice+" "+ "WON! the game.");
+            exitGame();
+        }else if(moveTo > 100){
+            nextTurn(whoRolledDice);
+        }
+
         
-        //write a loop here which moves the marker one positon at a time until the final positon is reached
-
-
-        movePlayer(whoRolledDice,nextDivId);
-        // diceTurn.classList.add("bounce"); try to add it after the marker is moved
 }
 
 async function movePlayer(markerId, nextDivId){
@@ -124,6 +123,7 @@ async function movePlayer(markerId, nextDivId){
 // }
 function exitGame(){
     //at any point if the exit is pressed then show a popup to confirm to exit and yes or no options. if yes, exit to index.html else continue the game.
+    window.location.replace("/")
 }
 function pauseGame(){
     //at any point if pause is pressed, then show a large pause image as a button on the screen and the background blurred
