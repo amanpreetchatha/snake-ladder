@@ -45,10 +45,10 @@ document.querySelector("#player-data").addEventListener("submit", (event) => {
 
     
     let playerDetail = Object.fromEntries(new FormData(event.target).entries());
-    if(playerDetail.noOfPlayers === undefined && localStorage.getItem("opponent") === "with-comp"){
-        playerDetail.noOfPlayers = 1;
-        playerDetail.pl2 = "Computer";
+    if(localStorage.getItem("opponent") === "with-comp"){
+        playerDetail.compPl = "Computer";
     }
+    delete playerDetail.noOfPlayers;
     localStorage.setItem("playersObj",JSON.stringify(playerDetail));
     
     initGame();

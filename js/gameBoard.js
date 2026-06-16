@@ -1,9 +1,10 @@
-import { playerRow1, playerRow2, playerRow3, playerRow4, markerComputer, markerPlayer1, markerPlayer2, markerPlayer3, markerPlayer4 } from "./allElements.js";
+import { playerRow1, playerRow2, playerRow3, playerRow4, markerComputer, markerPlayer1, markerPlayer2, markerPlayer3, markerPlayer4, computerPl } from "./allElements.js";
 
 export default function createLayout(){
 
     let playerDetail = JSON.parse(localStorage.getItem("playersObj"));
-let playerCount = Number(playerDetail.noOfPlayers);
+    
+let playerCount = Object.keys(playerDetail).length;
 let col1 = document.querySelector(".players-column1");
 let col2 = document.querySelector(".players-column2");
 let gridContainer = document.querySelector(".grid-container");
@@ -106,8 +107,7 @@ if (localStorage.getItem("opponent") === "with-player") {
 
 
     //add computer player row here;
-    col2.innerHTML = playerRow2;
-    document.querySelector(".player2").textContent = "Computer";
+    col2.innerHTML = computerPl;
     document.querySelector("#item1").innerHTML = markerPlayer1 + markerComputer;
 
 }

@@ -39,7 +39,7 @@ function nextTurn(prevPlayer){
     let nextTurn;
     let opponent = localStorage.getItem("opponent");
     let playersObj = JSON.parse(localStorage.getItem("playersObj"));
-    let arrayOfPlayers = (Object.keys(playersObj).sort().splice(1,5));
+    let arrayOfPlayers = (Object.keys(playersObj).sort());
     let indexOfPrev = arrayOfPlayers.indexOf(prevPlayer);
     if(indexOfPrev === arrayOfPlayers.length - 1)
         nextTurn = arrayOfPlayers[0];
@@ -50,11 +50,16 @@ function nextTurn(prevPlayer){
     let nowTurn = document.querySelector("#"+nextTurn);
     document.querySelector("#"+nextTurn).appendChild(diceBtn);
     diceBtn.classList.add("turn");
-
+    if(nextTurn === "compPl")
+    {
+        document.querySelector(".dice").disabled = true;
+        rollDice();
+    }
 }
 async function rollDice(){
     //then whoever has the turn rolls the dice
     let dice = document.querySelector(".dice");
+    dice.disabled = true;
     dice.classList.remove("turn");
     
         let diceNumber = Math.floor(Math.random() * 6) + 1;
@@ -62,6 +67,7 @@ async function rollDice(){
         dice.style.backgroundImage = `url("/img/dice${diceNumber}.png")`;
         //move the target marker here
         let whoRolledDice  = dice.parentElement.id;
+
         
                //calculate next position
         let presentDivId = document.getElementsByClassName(whoRolledDice)[0].parentElement.id;
@@ -113,6 +119,7 @@ async function movePlayer(markerId,presentLoc, moveTo){
         await animation.finished;
     }
     nextTurn(markerId);
+    document.querySelector(".dice").disabled = false;
 }
 // function nextTurn(){
 //     //after the previous player's marker is moved to the next location. pass the dice to next player and bounce it to indicate the roll

@@ -108,11 +108,18 @@ let playerRow4 = `
     
 </div>
 `;
+
+let computerPl = `
+<div class="pl-row" id="compPl">
+    <h2 class="computer name">Computer</h2>
+    <img class="pl" src="./img/icon-blue.webp"/>
+</div>`;
+
 let markerPlayer1 = `<img class="marker pl1" src="img/icon-red.webp"/>`;
 let markerPlayer2 = `<img class="marker pl2" src="img/icon-blue.webp"/>`;
 let markerPlayer3 = `<img class="marker pl3" src="img/icon-yellow.webp"/>`;
 let markerPlayer4 = `<img class="marker pl4" src="img/icon-green.webp"/>`;
-let markerComputer = `<img class="marker comp-marker" src="img/icon-blue.webp"/>`;
+let markerComputer = `<img class="marker compPl" src="img/icon-blue.webp"/>`;
 
 let dice = `<button class="dice turn"></button>`;
 
@@ -126,4 +133,4 @@ export function createElementFromString(htmlString) {
 export {dice, boardLayout, playerRow1, playerRow2, playerRow3, playerRow4, markerPlayer1, markerPlayer2, markerPlayer3, markerPlayer4, markerComputer };
 
 
-export {opponentForm, formDiv, thirdPlayer, fourthPlayer};
+export {opponentForm, formDiv, thirdPlayer, fourthPlayer, computerPl};
