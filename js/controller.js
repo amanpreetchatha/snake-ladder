@@ -31,11 +31,9 @@ export function initGame(){
     
 }
 function firstTurn(){
-
     let nowTurn = document.querySelector("#pl1");
     nowTurn.appendChild(elements.createElementFromString(elements.dice));
     document.querySelector(".dice").addEventListener("click", rollDice);
-    // nextTurn(nowTurn);
 }
 function nextTurn(prevPlayer){
     let nextTurn;
@@ -69,53 +67,51 @@ async function rollDice(){
         let presentDivId = document.getElementsByClassName(whoRolledDice)[0].parentElement.id;
         let moveTo = Number(presentDivId.substr(4)) + diceNumber;   
         if(moveTo < 100){
-            let nextDivId = "item" + moveTo;
+            
            //write a loop here which moves the marker one positon at a time until the final positon is reached 
-            movePlayer(whoRolledDice, nextDivId);
+            movePlayer(whoRolledDice,presentDivId.substr(4), moveTo);
         }else if(moveTo === 100){
             alert(whoRolledDice+" "+ "WON! the game.");
             exitGame();
         }else if(moveTo > 100){
             nextTurn(whoRolledDice);
         }
-
-        
 }
 
-async function movePlayer(markerId, nextDivId){
-
+async function movePlayer(markerId,presentLoc, moveTo){
     // then whoever rolled the dice, the marker of that player will be moved by dice number
     const marker = document.getElementsByClassName(markerId)[0];
-    const nextDiv = document.getElementById(nextDivId);
-    console.log(markerId);
-    const startPos = marker.getBoundingClientRect();
-
-    nextDiv.appendChild(marker);
     
-    const endPos = marker.getBoundingClientRect();
-
-    const deltaX = startPos.left - endPos.left;
-    const deltaY = startPos.top - endPos.top;
-
-    marker.animate([
-        {
-            transform: `translate(${deltaX}px, ${deltaY}px) scale(1)`,
-            offset: 0
-        },
-        {
-            transform: `translate(${deltaX / 2}px, ${deltaY}px) scale(1.2)`,
-            offset: 0.5
-        }, // Peak of the jump
-        {
-            transform: `translate(0px, 0px) scale(1)`,
-            offset: 1
-        }
-    ], {
-        duration: 3000, // Duration in milliseconds
-        easing: 'cubic-bezier(0.25, 1, 0.5, 1)', // Smooth landing profile
-        fill: 'forwards'
-    });
-
+    for(let i = Number(presentLoc)+1; i <=moveTo; i++){
+        
+        let nextDivId = "item" + i;
+        const nextDiv = document.getElementById(nextDivId);
+        
+        const startPos = marker.getBoundingClientRect();
+        nextDiv.appendChild(marker);
+        const endPos = marker.getBoundingClientRect();
+        const deltaX = startPos.left - endPos.left;
+        const deltaY = startPos.top - endPos.top;
+        let animation = marker.animate([
+            {
+                transform: `translate(${deltaX}px, ${deltaY}px) scale(1)`,
+                offset: 0
+            },
+            {
+                transform: `translate(${deltaX / 2}px, ${deltaY}px) scale(1.5)`,
+                offset: 0.5
+            }, // Peak of the jump
+            {
+                transform: `translate(0px, 0px) scale(1)`,
+                offset: 1
+            }
+        ], {
+            duration: 500, // Duration in milliseconds
+            easing: 'cubic-bezier(0.25, 1, 0.5, 1)', // Smooth landing profile
+            fill: 'forwards'
+        });
+        await animation.finished;
+    }
     nextTurn(markerId);
 }
 // function nextTurn(){

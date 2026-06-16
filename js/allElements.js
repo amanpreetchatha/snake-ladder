@@ -63,7 +63,7 @@ let boardLayout = `
         <ul>
             <li>Pause</li>
             <li>Restart</li>
-            <li>Exit</li>
+            <li id="exit">Exit</li>
         </ul>
     </nav>
     <div class="players-column1 pl-col">

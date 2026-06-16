@@ -7,6 +7,8 @@ let playerCount = Number(playerDetail.noOfPlayers);
 let col1 = document.querySelector(".players-column1");
 let col2 = document.querySelector(".players-column2");
 let gridContainer = document.querySelector(".grid-container");
+document.getElementById("exit").addEventListener("click",()=>window.location.replace("/"));
+
 //add elements to empty grid cells.
 for (let i = 100; i >= 91; i--) {
     let item = document.createElement("div");
