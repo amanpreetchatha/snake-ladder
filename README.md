@@ -1,7 +1,5 @@
 # 🐍 Snake and Ladder Game
 
-[![Deployed on Vercel](https://shields.io)](https://snake-ladder-flame.vercel.app/)
-
 An interactive, web-based version of the classic Snakes and Ladders board game. This project is built entirely using standard web technologies: **HTML5, CSS3, and JavaScript**.
 
 ## 🚀 Live Demo
