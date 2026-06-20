@@ -1,10 +1,11 @@
 import * as elements from "./allElements.js";
 import createLayout from "./gameBoard.js";
+import { board1, board2, board3 } from "./map.js";
 import runScript from "./playerForm2.js";
 //everything starts here
 document.addEventListener("DOMContentLoaded", chooseOpponent);
 let bodyElement = document.querySelector("body");
-
+let gameBoard = null;
 function chooseOpponent(){
     //display the form to record the selection for opponents
     document.querySelector("main").innerHTML = elements.opponentForm;
@@ -28,7 +29,19 @@ export function initGame(){
     bodyElement.innerHTML = elements.boardLayout;
     createLayout();
     firstTurn();
-    
+    const boardImg = window.getComputedStyle(document.documentElement).getPropertyValue('--board').trim();
+    switch (boardImg.slice(9, 15)) {
+        case "board1":
+            gameBoard = board1;
+            break;
+        case "board2":
+            gameBoard = board2;
+            break;
+        case "board3":
+            gameBoard = board3;
+            break;
+    }
+
 }
 function firstTurn(){
     let nowTurn = document.querySelector("#pl1");
@@ -76,10 +89,8 @@ async function rollDice(){
             
            //write a loop here which moves the marker one positon at a time until the final positon is reached 
             movePlayer(whoRolledDice,presentDivId.substr(4), moveTo);
-        }else if(moveTo === 100){
-            alert(whoRolledDice+" "+ "WON! the game.");
-            exitGame();
-        }else if(moveTo > 100){
+        }
+        else if(moveTo > 100){
             nextTurn(whoRolledDice);
         }
 }
@@ -118,15 +129,20 @@ async function movePlayer(markerId,presentLoc, moveTo){
         });
         await animation.finished;
     }
-    nextTurn(markerId);
-    document.querySelector(".dice").disabled = false;
+    
+    if (moveTo === 100) {
+        alert(whoRolledDice + " " + "WON! the game.");
+        exitGame();
+    }
+    else{
+        checkLadderOrSnake(marker, moveTo);
+        nextTurn(markerId);
+        document.querySelector(".dice").disabled = false;
+    }
 }
-// function nextTurn(){
-//     //after the previous player's marker is moved to the next location. pass the dice to next player and bounce it to indicate the roll
-// }
 function exitGame(){
     //at any point if the exit is pressed then show a popup to confirm to exit and yes or no options. if yes, exit to index.html else continue the game.
-    window.location.replace("/")
+    window.location.replace("/");
 }
 function pauseGame(){
     //at any point if pause is pressed, then show a large pause image as a button on the screen and the background blurred
@@ -137,11 +153,28 @@ function reachedHundred(){
     //also display stats like points or coins earned after winning. while for all the loosing players. list their names by how far they were from the 100th div.
     //display a play again and exit button for next steps.
 }
-function foundLadder(){
-    //if any player marker HAS LANDED ON a number where there is down side of ladder is placed, then find out the position where that ladder takes at the top.
-    //and move that player to that position with an animation
+function checkLadderOrSnake(marker, moveTo){
+    let snakeTail = gameBoard.snakes[moveTo];
+    let ladderTop = gameBoard.ladders[moveTo];
+    if(snakeTail !== undefined){
+        console.log("snake leads to:", snakeTail);
+        snakeBite(marker, moveTo, snakeTail);
+    }
+    if(ladderTop !== undefined){
+        console.log("ladder leads to:", ladderTop);
+        takeLadder(marker, moveTo, ladderTop);
+    }
+
 }
-function bittenBySnake(){
-    //if any player marker HAS LANDED ON a snake mouth, then find out where that snake takes throught the tail and move that marker to that position, 
-    //move the marker slowly with animation on top of the snake's body and make it reach the tail number div
+function takeLadder(marker, presentLoc, ladderTop){
+    let nextDivId = "item" + ladderTop;
+    const nextDiv = document.getElementById(nextDivId);
+    nextDiv.appendChild(marker);
+
+
+}
+function snakeBite(marker, presentLoc, snakeTail){
+    let nextDivId = "item" + snakeTail;
+    const nextDiv = document.getElementById(nextDivId);
+    nextDiv.appendChild(marker);    
 }

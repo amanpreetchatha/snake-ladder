@@ -1,6 +1,7 @@
 :root{
     --bgColor: #FF0052;
     --shadow: inset 0 0 0 1px white, 0em 0em 10px rgb(200 0 0);
+    --board: url("img/board2.png");
 }
 
 
@@ -219,7 +220,7 @@ fieldset{
 .game-board{
     width: 50rem;
     height: 50rem;
-    background-image: url("img/board2.png");
+    background-image: var(--board);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

@@ -74,3 +74,4 @@ const board3 = {
     }
 };
 
+export {board1, board2, board3}
