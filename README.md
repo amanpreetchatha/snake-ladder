@@ -1,33 +1,61 @@
-# snake-ladder
-An interactive game, developed with HTML, CSS and Javascript.
+# 🐍 Snake and Ladder Game
 
-Snakes and Ladders is a simple race game played on a numbered, gridded board where players roll a die to move from square 1 to square 100.
-The game relies entirely on luck and is popular with players of all ages.
-Here is how the game is played, along with its unique history.
+An interactive, web-based version of the classic Snakes and Ladders board game. This project is built entirely using standard web technologies: **HTML5, CSS3, and JavaScript**.
 
-🎲 How to Play the GameGame SetupThe Board:
+## 🎮 About the Game
+Snakes and Ladders is a classic race game played on a numbered, 10x10 gridded board. Players roll a virtual die to move their pieces from square 1 to square 100. The game relies entirely on luck and is fun for players of all ages!
 
-The board has 100 numbered squares starting at the bottom left (square 1) and zig-zagging up to the top row (square 100).
+---
 
-    The Pieces: Each player chooses a unique colored token or game piece.
-    Starting Grid: Everyone places their piece just off the board or right on square 1.
-    Move Forward: Move your piece forward by the exact number shown on the die.
-    Follow the numbers in sequence (for example, move from 10 up to 11 on the next row).
-    Earn a Bonus: If you roll a 6, you get to move your piece and then immediately roll the die again for an extra turn.
+## 🎲 How to Play
 
-    The Board Obstacles
-        🪜 Climbing Ladders: If your piece lands exactly on a square with the bottom of a ladder, you get to slide your piece all the way up to the square at the top of the ladder.
-        🐍 Sliding Down Snakes: If your piece lands exactly on a square with a snake's head, you must slide your piece all the way down to the square at the snake's tail.
-        Passing Through: If you land on the middle of a snake or ladder while counting out your moves, nothing happens. The obstacles only trigger if you land directly on them at the end of your move.
-        
-    Winning the Game
-        The first person to reach square 100 wins the game.
-        Most traditional rules state you must roll the exact number needed to land on 100. If you are on square 99 and roll a 3, your piece cannot move and you must wait for your next turn.
+### Game Setup
+* **The Board**: Features 100 numbered squares starting at the bottom left (square 1) and zig-zagging up to the top row (square 100).
+* **The Pieces**: Each player chooses a unique colored token.
+* **Starting Grid**: Everyone starts just off the board or on square 1.
 
-🏛️ The Ancient Indian Origins
+### Taking Turns
+* **Move Forward**: Roll the die and move forward by that exact number of squares. Follow the numerical sequence up the grid.
+* **Roll a Six**: If you roll a **6**, you move your piece and get an immediate bonus roll!
 
-    While the modern game is just a fun race, it actually originated in ancient India thousands of years ago. It was originally called Moksha Patam (or Gyan Chauper).The game was invented by spiritual teachers to instruct children about morality, ethics, and the concept of Karma (cause and effect).Ladders represented Virtues: Landing on a ladder meant you performed a good deed, like faith, reliability, or humility, which lifted your soul closer to heaven.Snakes represented Vices: Landing on a snake meant you committed a bad deed, like anger, theft, or pride, which dragged you down into a lower state of life.
-    
-    The Goal: Reaching the final square represented attaining Moksha, which means spiritual liberation or enlightenment.
-    
-    When British rulers came to India in the 1890s, they loved the game and brought it back to the United Kingdom. They stripped away the deep religious meanings and turned it into the classic children's board game known around the world today.
+### Board Obstacles
+* **🪜 Climbing Ladders**: Land exactly on the bottom of a ladder to slide up to the top square.
+* **🐍 Sliding Down Snakes**: Land exactly on a snake's head to slide down to its tail.
+* **Passing Through**: Middle sections of snakes or ladders do not trigger anything. You must land exactly on them.
+
+### Winning the Game
+* The first person to reach **square 100** wins!
+* You must roll the **exact number** needed to land on 100. If you are on 99 and roll a 3, your piece stays put until your next turn.
+
+---
+
+## 🏛️ History and Origins
+While the modern game is a fun race, it originated in ancient India thousands of years ago as **Moksha Patam** (or *Gyan Chauper*). 
+
+* **Moral Lessons**: Spiritual teachers used it to teach children about **Karma** (cause and effect).
+* **Virtues vs. Vices**: Ladders represented good deeds (like faith and humility) that lifted the soul. Snakes represented bad deeds (like anger and pride) that dragged you down.
+* **The Goal**: Reaching square 100 represented attaining **Moksha** (spiritual liberation or enlightenment).
+
+In the 1890s, the game was brought to the United Kingdom, where it was adapted into the secular children's game we know today.
+
+---
+
+## 🛠️ Built With
+* **HTML5** - Structure of the game board and controls.
+* **CSS3** - Board styling, animations, and responsive layout.
+* **JavaScript (ES6)** - Game logic, dice rolling, and piece movement.
+
+---
+
+## 🚀 How to Run Locally
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com
+   ```
+2. **Navigate to the project folder:**
+   ```bash
+   cd snake-ladder
+   ```
+3. **Open the game:**
+   Double-click the `index.html` file to launch and play the game in your favorite web browser!
