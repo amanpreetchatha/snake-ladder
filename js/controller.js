@@ -133,7 +133,7 @@ async function movePlayer(markerId,presentLoc, moveTo){
     }
     
     if (moveTo === 100) {
-        alert(markerId, "WON! the game.");
+        alert(document.getElementById(markerId).firstElementChild.textContent + " WON!");
         exitGame();
     }
     else{
@@ -145,15 +145,6 @@ async function movePlayer(markerId,presentLoc, moveTo){
 function exitGame(){
     //at any point if the exit is pressed then show a popup to confirm to exit and yes or no options. if yes, exit to index.html else continue the game.
     window.location.replace("/");
-}
-function pauseGame(){
-    //at any point if pause is pressed, then show a large pause image as a button on the screen and the background blurred
-}
-function reachedHundred(){
-    //if any of the player's marker is found in the 100 number div, then remove all controls to move the dice etc and end the game and display a popup screen with 
-    // congratulations message for the winning player.
-    //also display stats like points or coins earned after winning. while for all the loosing players. list their names by how far they were from the 100th div.
-    //display a play again and exit button for next steps.
 }
 function checkLadderOrSnake(marker, moveTo){
     let snakeTail = gameBoard.snakes[moveTo];
