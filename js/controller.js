@@ -63,7 +63,7 @@ function nextTurn(prevPlayer){
     let nowTurn = document.querySelector("#"+nextTurn);
     document.querySelector("#"+nextTurn).appendChild(diceBtn);
     diceBtn.classList.add("turn");
-    if(nextTurn === "compPl")
+    // if(nextTurn === "compPl")        commenting this line will put all the players on autopilot, after first click event on the dice.
     {
         document.querySelector(".dice").disabled = true;
         rollDice();
@@ -71,6 +71,7 @@ function nextTurn(prevPlayer){
 }
 async function rollDice(){
     //then whoever has the turn rolls the dice
+    
     let dice = document.querySelector(".dice");
     dice.disabled = true;
     dice.classList.remove("turn");
@@ -85,7 +86,8 @@ async function rollDice(){
                //calculate next position
         let presentDivId = document.getElementsByClassName(whoRolledDice)[0].parentElement.id;
         let moveTo = Number(presentDivId.substr(4)) + diceNumber;   
-        if(moveTo < 100){
+        console.log("dice rolled by", whoRolledDice,"dice number is", diceNumber, " which takes", whoRolledDice,"to",moveTo);
+        if(moveTo <= 100){
             
            //write a loop here which moves the marker one positon at a time until the final positon is reached 
             movePlayer(whoRolledDice,presentDivId.substr(4), moveTo);
@@ -98,7 +100,7 @@ async function rollDice(){
 async function movePlayer(markerId,presentLoc, moveTo){
     // then whoever rolled the dice, the marker of that player will be moved by dice number
     const marker = document.getElementsByClassName(markerId)[0];
-    
+    console.log(markerId, "will be moved to", moveTo);
     for(let i = Number(presentLoc)+1; i <=moveTo; i++){
         
         let nextDivId = "item" + i;
@@ -131,7 +133,7 @@ async function movePlayer(markerId,presentLoc, moveTo){
     }
     
     if (moveTo === 100) {
-        alert(whoRolledDice + " " + "WON! the game.");
+        alert(markerId, "WON! the game.");
         exitGame();
     }
     else{
@@ -157,11 +159,11 @@ function checkLadderOrSnake(marker, moveTo){
     let snakeTail = gameBoard.snakes[moveTo];
     let ladderTop = gameBoard.ladders[moveTo];
     if(snakeTail !== undefined){
-        console.log("snake leads to:", snakeTail);
+        console.log("bitten by snake, go to", snakeTail);
         snakeBite(marker, moveTo, snakeTail);
     }
     if(ladderTop !== undefined){
-        console.log("ladder leads to:", ladderTop);
+        console.log("take ladder, go to", ladderTop);
         takeLadder(marker, moveTo, ladderTop);
     }
 
