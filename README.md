@@ -1,6 +1,14 @@
 # 🐍 Snake and Ladder Game
 
+[![Deployed on Vercel](https://shields.io)](https://snake-ladder-flame.vercel.app/)
+
 An interactive, web-based version of the classic Snakes and Ladders board game. This project is built entirely using standard web technologies: **HTML5, CSS3, and JavaScript**.
+
+## 🚀 Live Demo
+You can play the live game directly in your browser here:  
+👉 **[https://snake-ladder-flame.vercel.app/](https://snake-ladder-flame.vercel.app/)**
+
+---
 
 ## 🎮 About the Game
 Snakes and Ladders is a classic race game played on a numbered, 10x10 gridded board. Players roll a virtual die to move their pieces from square 1 to square 100. The game relies entirely on luck and is fun for players of all ages!
@@ -47,15 +55,28 @@ In the 1890s, the game was brought to the United Kingdom, where it was adapted i
 
 ---
 
-## 🚀 How to Run Locally
+## 💻 How to Run Locally
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com
-   ```
-2. **Navigate to the project folder:**
-   ```bash
-   cd snake-ladder
-   ```
-3. **Open the game:**
-   Double-click the `index.html` file to launch and play the game in your favorite web browser!
+> ⚠️ **Note:** Because this project uses JavaScript ES6 modules (`type="module"`), opening the `index.html` file directly by double-clicking it will cause a CORS error in your browser. You **must** run a local web server to play it locally.
+
+### 1. Clone the repository
+```bash
+git clone https://github.com
+cd snake-ladder
+```
+
+### 2. Start a Local Server (Choose Option A or B)
+
+#### Option A: Using Python (Quickest if Python is installed)
+Run the following command in your terminal inside the project folder:
+```bash
+python3 -m http.server 8000
+```
+Then open your browser and go to: **`http://localhost:8000`**
+
+#### Option B: Using Node.js / NPM
+Run the following command in your terminal inside the project folder:
+```bash
+npx http-server .
+```
+Then open your browser and go to the local URL provided in your terminal (usually **`http://localhost:8080`**).
