@@ -63,7 +63,7 @@ function nextTurn(prevPlayer){
     let nowTurn = document.querySelector("#"+nextTurn);
     document.querySelector("#"+nextTurn).appendChild(diceBtn);
     diceBtn.classList.add("turn");
-    // if(nextTurn === "compPl")        commenting this line will put all the players on autopilot, after first click event on the dice.
+    if(nextTurn === "compPl")     //   commenting this line will put all the players on autopilot, after first click event on the dice.
     {
         document.querySelector(".dice").disabled = true;
         rollDice();
